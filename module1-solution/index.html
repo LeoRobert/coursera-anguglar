@@ -15,13 +15,14 @@
      <h1>Lunch Checker</h1>
 
          <div class="form-group" >
-             <input id="lunch-menu" type="text"
-             placeholder="list comma separated dishes"
+             <input id="lunch-menu" type="text" data-toggle="tooltip" title="Any character, even no character between 2 commas will be considered as a dishe"
+             placeholder="list comma separated dishes and check if it's enough food for a big boy/girl like you!"
              class="form-control" ng-model="name" >
          </div>
          <div class="form-group">
              <button class="btn btn-default" ng-click="howSMyLunch()">Check If Too Much</button>
          </div>
+
          <div class="form-group message" >
            {{response}}
          </div>
