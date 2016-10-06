@@ -1,21 +1,35 @@
 (function () {
 'use strict';
 
-angular.module('DIApp', [])
-.controller('DIController', DIController);
+angular.module('myLunch', [])
+.controller('LunchController', function ($scope) {
+  $scope.name = "";
+  $scope.nameArray = [];
+  $scope.nbDishes = 0;
+  $scope.response = "";
 
-function DIController ($scope, $filter, $injector) {
-  $scope.name = "Leo";
-
-  $scope.upper=function(){
-    var upCase = $filter('uppercase');
-    $scope.name=upCase($scope.name);
+  $scope.howSMyLunch=function(){
+    $scope.nameArray=$scope.name.replace(" ", "").split(",");
+    $scope.response = checkIfItsEnoughToEat($scope.nameArray);
   };
-  console.log($injector.annotate(DIController));
+})
+function checkIfItsEnoughToEat(myArrayOfDishes){
+  var response = "";
+  if(myArrayOfDishes[0] === "" && myArrayOfDishes.length<2){
+    response = "You need to enter at least one dishe";
+  }else if (myArrayOfDishes.length >3){
+    response = "That is a bit too much, you should eat less!";
+  } else if (myArrayOfDishes.length<=3 && myArrayOfDishes.length>0){
+    response = "Very good!";
+  }else if(myArrayOfDishes.length===0){
+    response = "You need to enter a dishe";
+  }else{
+    response = ".... WELL ...."
+    console.log("problem, aboooard!");
+  }
+  return response;
 }
 
-function annotateMe(name, job, blah){
-  return "Blah";
-}
-console.log(DIController.toString());
+
+
 })();
