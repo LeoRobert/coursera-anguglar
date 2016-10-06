@@ -10,7 +10,8 @@ function LunchController ($scope) {
   $scope.nameArray = [];
   $scope.response = "";
   $scope.howSMyLunch=function(){
-    $scope.nameArray=$scope.name.replace(" ", "").split(",");
+    
+    $scope.nameArray=$scope.name.trim().replace(" ", "").split(",");
     $scope.response = checkIfItsEnoughToEat($scope.nameArray);
   };
 }
