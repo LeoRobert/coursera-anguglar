@@ -11,7 +11,7 @@ function LunchController ($scope) {
   $scope.response = "";
   $scope.howSMyLunch=function(){
     
-    $scope.nameArray=$scope.name.trim().replace(" ", "").split(",");
+    $scope.nameArray=$scope.name.trim().split(",");
     $scope.response = checkIfItsEnoughToEat($scope.nameArray);
   };
 }
