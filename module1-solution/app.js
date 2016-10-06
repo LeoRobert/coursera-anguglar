@@ -4,7 +4,7 @@
 angular.module('myLunch', [])
 .controller('LunchController', LunchController);
 
-LunchController.$inject = [$scope];
+LunchController.$inject = ['$scope'];
 function LunchController ($scope) {
   $scope.name = "";
   $scope.nameArray = [];
